@@ -6,6 +6,9 @@ import java.util.Collections;
 public class Deck {
     ArrayList<Card> deck = new ArrayList<>();
 
+    /**class builder, if paramter is true the deck is full, else it's empty
+     * @param parameter
+     */
     public Deck(boolean parameter) {
         if (parameter == true) {
             for (shape value : shape.values()) {
@@ -17,10 +20,16 @@ public class Deck {
         }
     }
 
+    /**
+     * @return last card of the deck
+     */
     public Card getLastCard() {
         return deck.get(deck.size() - 1);
     }
 
+    /** adds card to the top of the deck
+     * @param card
+     */
     public void addCard(Card card) {
         deck.add(deck.size(), card);
     }
@@ -34,10 +43,16 @@ public class Deck {
             return null;
     }
 
+    /**
+     * @return whether the deck is empty
+     */
     public boolean isEmpty() {
         return deck.isEmpty();
     }
 
+    /**
+     * shuffles randomly the deck
+     */
     public void shuffle() {
         for (int i = 0; i < 50; i++) {
             int index1 = Main.rnd.nextInt(deck.size());

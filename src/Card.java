@@ -23,6 +23,10 @@ public class Card {
         return this.shape;
     }
 
+    /**
+     * @param other card
+     * @return which card is bigger accordong to their number
+     */
     public int compare(Card other) {
         if (this.number == other.getNumber())
             return EVEN;

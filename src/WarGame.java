@@ -4,6 +4,12 @@ public class WarGame {
     Player player2;
     Deck Player2_deck;
 
+    /**
+     * class builder consiss two player objects and two deck objects
+     *
+     * @param name1
+     * @param name2
+     */
     public WarGame(String name1, String name2) {
         player1 = new Player(name1);
         player2 = new Player(name2);
@@ -11,6 +17,9 @@ public class WarGame {
         Player2_deck = new Deck(false);
     }
 
+    /**
+     * initializes the game (so it's ready to begin)
+     */
     public void initializeGame() {
         Deck cards = new Deck(true);
         cards.shuffle();
@@ -31,6 +40,10 @@ public class WarGame {
         }
     }
 
+    /**
+     * @param player_3
+     * @return whether the player has cards remaining
+     */
     private boolean checkIfRemainCardsInCardsGame(Player player_3) {
         if (player_3.game_deck.isEmpty() == true) {
             if (player_3.win_deck.isEmpty() == true)
@@ -45,6 +58,9 @@ public class WarGame {
         return true;
     }
 
+    /**
+     * prints the player and the card he drew
+     */
     public void printDrewSystem() {
         if (player1.getName().compareTo(player2.getName()) < 0) {
             System.out.println(player1.getName() + " drew " + this.player1_deck.getLastCard().toString());
@@ -55,6 +71,9 @@ public class WarGame {
         }
     }
 
+    /**
+     * sets a war according to the game's rules
+     */
     public void war() {
         System.out.println("Starting a war...");
         for (int i = 0; i < 3; i++) {
@@ -129,6 +148,11 @@ public class WarGame {
 
     }
 
+    /**
+     * runs the game
+     *
+     * @return the name of the winner
+     */
     public String start() {
         System.out.println("Initializing the game...");
         initializeGame();
