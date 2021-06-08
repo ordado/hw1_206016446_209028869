@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 
 public class Deck {
@@ -15,9 +17,8 @@ public class Deck {
         }
     }
 
-    public Card getLastCard()
-    {
-        return deck.get(deck.size()-1);
+    public Card getLastCard() {
+        return deck.get(deck.size() - 1);
     }
 
     public void addCard(Card card) {
@@ -41,22 +42,11 @@ public class Deck {
         for (int i = 0; i < 50; i++) {
             int index1 = Main.rnd.nextInt(deck.size());
             int index2 = Main.rnd.nextInt(deck.size());
-            if (index1<index2)
-            {
-                deck.add(index1, deck.get(index2));
-                Card temp1 = deck.remove(index1 + 1);
-                deck.add(index2, deck.get(index1));
-                Card temp2 = deck.remove(index2 + 1);
-            }
-            else
-            {
-                deck.add(index2, deck.get(index1));
-                Card temp1 = deck.remove(index2 + 1);
-                deck.add(index1, deck.get(index2));
-                Card temp2 = deck.remove(index1 + 1);
-            }
+            Collections.swap(deck,index1,index2);
+//            deck.add(index1, deck.get(index2));
+//            Card temp1 = deck.remove(index1 + 1);
+//            deck.add(index2, deck.get(index1));
+//            Card temp2 = deck.remove(index2 + 1);
         }
     }
-
-
 }
